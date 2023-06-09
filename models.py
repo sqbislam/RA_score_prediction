@@ -38,6 +38,9 @@ import torch.nn.functional as F
 import torchvision
 
 
+
+# YOLO Model outputs the class of the joint names = {0: 'PIP', 1: 'MCP', 2: 'Wrist', 3: 'Radius', 4: 'Ulna'}
+
 class Ditill_ViT(nn.Module):
     def __init__(self, input_size=(224, 224), output_size=5):
         super(Ditill_ViT, self).__init__()
@@ -235,7 +238,7 @@ class MTL_ViTModule(nn.Module):
     def __init__(self, input_size=(224, 224), output_size=1, pretrained=True, frozen_feature_layers=False):
         super().__init__()
 
-        resnet18 = models.resnet18(pretrained=pretrained)
+        # resnet18 = models.resnet18(pretrained=pretrained)
         self.output_size = output_size
         in_features = 1000  # Output from pre-trained model
 
